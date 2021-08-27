@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plats
+{% endblock %}
+
+{% block body %}
+	<section id="menu" class="menu section-bg">
+		<div class:"container-fluid container-xl d-flex align-items-center justify-content-lg-between" style="margin-top:100px">
+			<div class="container" data-aos="fade-up">
+				<h2>Plats du Jour</h2>
+				<div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
+					<div class="col-lg-6 menu-item filter-starters">
+						<img src="/assets/img/menu/mafe.jpeg" class="menu-img" alt="">
+						<div class="menu-content">
+							<a href="#">{{ plat.nomPlat }}</a>
+						</div>
+						<div class="menu-ingredients">
+							{{ plat.description }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="book-a-table" class="book-a-table">
+	<div class="container" data-aos="fade-up"  style="background-color:black;">
+<h2>Liste de Commentaires</h2>
+<br>
+		<div class="col-xs2 col-sm3">
+			{% for comment in plat.comments %}
+				{# {{ dump(comment) }} #}
+				<h6>Publier par :
+				&nbsp
+				<div class="name" style="color:red;">
+					{{comment.nom}}
+					{{comment.prenom}}
+					</div>
+				    {# le
+					{{comment.createdAt|date("d/m/y H:i")}}  #}
+				</h6>
+				<div>
+					{{comment.message}}</div>
+					{{comment.note}}
+				<br>
+				<h7>
+					<a href="#ajout commentaire" data-reply data-id="{{comment.id}}" class="btn btn-primary">Répondre</a>
+				</h7>
+			{% endfor %}
+
+		</div>
+		<div class="col-12" style="background-image:url(/assets/img/specials-1.png); justify-content:center;">
+			<div class="card-body p-md-5 text-black" id="ajout commentaire">
+				{{form_start(commentForm)}}
+				{# <div class="section-tittle" id="ajout commentaire"> #}
+				<h3 class="mb-5 text-uppercase">Merci de commenter le Plat</h3>
+
+				<div class="row">
+					<div class="col-md-6 mb-4">
+						<div class="form-outline">
+							{{form_row(commentForm.nom , { label: 'nom'})}}
+						</div>
+					</div>
+					<div class="col-md-6 mb-4" >
+						<div class="form-outline">
+							{{form_row(commentForm.prenom, { label: 'prenom'})}}
+						</div>
+					</div>
+					<div class="form-outline mb-4">
+						{{form_row(commentForm.email, { label: 'email'})}}
+					</div>
+					<div class="form-outline mb-4">
+						{{form_row(commentForm.message, { label: 'message'})}}
+					</div>
+					 <div>
+						{{form_row(commentForm.note)}}
+					</div>  
+					{{form_end(commentForm)}}
+					<div class="text-center" data-aos="fade-up" data-aos-delay="100">
+						<button type="submit">Commenter</button>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<br>
+	 <a href="{{path('plat_edit', {id: plat.id})}}">
+		<button class="btn btn-primary">Modifier</button>
+	</a>
+	<a href="{{path('plat_delete', {id: plat.id})}}">
+		<button class="btn btn-primary">Supprimer</button>
+	</a>
+	<a href="{{path('plat_index')}}">
+		<button class="btn btn-primary">Retour liste des plats</button>
+	</a> 
+{% endblock %}

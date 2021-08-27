@@ -1,0 +1,70 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	 {# <section id="menu" class="menu section-bg">
+									<div class="container" data-aos="fade-up">
+										<div class="section-title">
+											<h2>Menu du Jour</h2>
+											<p>Choisissez Vos plats</p>
+										</div>
+										<div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
+											{% for menu in menus %}
+												<div class="col-lg-6 menu-item filter-starters">
+													<img src="assets/img/menu/greek-salad.jpg" class="menu-img" alt="">
+													<div class="menu-content">
+														<a href="#">{{ menu.descriptionMenu }}</a>
+													</div>
+												</div>
+											{% endfor %}
+										</div>
+									</div>
+								</section>  #}
+
+	<section id="specials" class="specials">
+		<div class:"container-fluid mt-6 container-xl d-flex align-items-center justify-content-lg-between" style="margin-top:100px;">
+			<div class="container" data-aos="fade-up">
+
+				<div class="section-title">
+					<h2>Menu du Jour</h2>
+					<p>Choisissez Vos Plats</p>
+				</div>
+				<div class="row" data-aos="fade-up" data-aos-delay="100">
+
+					<div class="col-lg-4">
+						<ul class="nav nav-tabs  flex-column ">
+							<li class="nav-item ">
+								<a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Liste des plats</a>
+							</li>
+							{% for plat in menus.plats.values %}
+								<li class="nav-item"  >
+									<a href="#"> <br>{{ plat.nomPlat }} </a>
+									&nbsp
+									<a href="{{path('plat_show', {id : plat.id})}}" class="btn btn-olive"><button>Commenter le plat</button> </a>
+								</li>
+								<br>
+								{# <a href="{{path('plats_show', {id : plat.id})}}" class="book-a-table-btn">Commenter le plat</a> #}
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="col-lg-8 mt-4 mt-lg-0">
+						<div class="tab-content">
+						
+							{# {{ dump(menu.plats.values) }} #}
+								<div class="tab-pane active show" id="tab-1"> <div class="row">
+									<div class="col-lg-8 details order-2 order-lg-1">
+										<h3>Menu Du Jour</h3>
+										<p class="fst-italic">{{ menus.descriptionMenu }}</p>
+									</div>
+									<div class="col-lg-4 text-center order-1 order-lg-2">
+										<img src="/assets/thiebou.jpg" alt="" class="img-fluid my-4">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

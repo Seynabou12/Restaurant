@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Menu index
+{% endblock %}
+
+{% block body %}
+
+	<section>
+		<div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between" style="margin-top:100px;color:white; background-color:white;">
+			<div class="container mt-6">
+				<h1>Page des Menus</h1>
+				<table class="table" style:"color:white">
+					<thead>
+						<tr>
+							<th>DescriptionMenu</th>
+							<th>actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for menu in menus %}
+							<tr>
+								<td>{{ menu.descriptionMenu }}</td>
+								<td>
+									<a href="{{ path('menu_show', {'id': menu.id}) }}">show</a>
+									<a href="{{ path('menu_edit', {'id': menu.id}) }}">Modifier</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="5">no records found</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+

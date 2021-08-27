@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurant index{% endblock %}
+{% block body %}
+
+<section>
+<div class:"container-fluid container-xl d-flex align-items-center justify-content-lg-between" style="margin-top:100px;">
+    <div class="container mt-6">
+    <h1>Liste des Restaurants</h1>
+     
+    <table class="table" style="color:black; background-color:white">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Lieu</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for restaurant in restaurants %}
+            <tr>
+                <td>{{ restaurant.nom }}</td>
+                <td>{{ restaurant.lieu }}</td>
+               
+                <td>
+                    <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}"><i class="fas fa-edit"></i></i></a>
+                    <a href="{{ path('restaurant_delete', {'id': restaurant.id}) }}" onclick="return confirm('attention ceci va supprimer le restaurant sélectioné')"><i class="fas fa-trash-alt"></i></a>
+                    <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+     <a href="{{ path('restaurant_new') }}"><button ><strong> Ajouter un Resto</strong></button></a>
+</div>
+    
+    
+    </div>
+    </section>
+{% endblock %}

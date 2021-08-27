@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    border: none;
+    padding: 15px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.login-title {
+    grid-area: login-title;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+
+.login-title h1 {
+    color: #f1c80f;
+    font-size: 3.5rem;
+    margin: 15px;
+    margin-top: 30px;
+}
+
+.login-title .login-img img {
+    width: 500px;
+    height: auto;
+    grid-area: login-img;
+}
+
+.login-title p {
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
+}
+
+.login-form {
+    grid-area: login-form;
+    width: 400px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 20%);
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.login-form .form-row {
+    margin: 5px 0;
+}
+
+.login-form .form-button .btn-submit {
+    background-color: #00a8ff;
+    color: #fff;
+    width: 95%;
+    margin-top: 10px;
+}
+
+.login-form .form-row input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 50px;
+    font-size: 1.2rem;
+    width: 95%;
+    border-radius: 5px;
+    border: 1px solid gray;
+    outline: none;
+}
+
+.container-login {
+    display: grid;
+    height: 100vh;
+    text-align: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 360px 360px;
+    grid-template-areas: "login-title""login-form";
+}
+
+.container-login-img-p {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "login-img none";
+    margin: 0 100px;
+}
+
+.container-login-img-p p {
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+    p{
+        grid-area: p;
+    }
+    .container-login-img-p {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 100px;
+        grid-template-areas: "login-img .""p .";
+        justify-content: center;
+    }
+
+    .container-login-img-p p {
+        margin-top: 0px;
+        margin-bottom: 6px;
+        font-size: 1.2rem;
+    }
+
+    .login-title .login-img img {
+        width: 250px;
+        height: auto;
+        grid-area: login-img;
+    }
+
+    .container-login{
+        text-align: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 360px 360px;
+        grid-template-areas: "login-title .""login-form .";
+    }
+    
+    .login-form {
+        margin-top: 5px;
+        margin-bottom: 2px;
+    }
+}

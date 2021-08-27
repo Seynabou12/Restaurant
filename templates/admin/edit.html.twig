@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1>Creation de formulaire</h1>
+
+	{{ form_start(form) }}
+	<div class="container w-50 h-50 bg-white text-black">
+		<div class="form-group">
+			{{ form_widget(form) }}
+		</div>
+		<button class="btn btn-primary">{{ button_label|default('Modifier') }}</button>
+        <button class="btn btn-primary">{{ button_label|default('supprimer') }}</button>
+	</div>
+    {{ form_end(form) }}
+{% endblock %}

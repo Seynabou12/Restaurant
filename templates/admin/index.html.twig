@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!
+{% endblock %}
+
+{% block body %}
+
+	<section>
+		<div class:"container-fluid container-xl d-flex align-items-center justify-content-lg-between" style="margin-top:100px">
+			<div class="container mt-6">
+
+				<h2>Interface Administrateur</h2>
+				<table class="table table-striped table-dark">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">nom</th>
+							<th scope="col">lieu</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						{% for restaurant in restaurants %}
+							<tr scope="row">
+								<td>{{restaurant.id}}</td>
+								<td>{{restaurant.nom}}</td>
+								<td>{{restaurant.lieu}}</td>
+								<td>
+									<a href="{{path('admin_edit', {'id': restaurant.id})}}">
+										<i class="fas fa-edit"></i>
+									</a>
+								</td>
+								<td>
+									<a href="{{path('admin_delete', {'id': restaurant.id})}}" onclick="return confirm('Etes vous sur de bien vouloir supprimer ce responsable'  )">
+										<i class="fas fa-trash-alt"></i>
+									</a>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<a href="#" class="book-a-table-btn scrollto ">
+					ajouter un restaurant
+				</a>
+				<br>
+				<br>
+				{# <a href="{{ path('restaurant_index') }}" class="book-a-table-btn scrollto">
+					liste des Restaurants
+				</a> #}
+			</div>
+		</div>
+	</section>
+{% endblock %}

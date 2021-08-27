@@ -1,0 +1,208 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}WELCOM!
+{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
+	<main
+		id="main">
+		<!-- End #main -->
+		<section id="hero" class="d-flex align-items-center">
+			<div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+				<div class="row">
+					<div class="col-md-10">
+						<h1>BIENVENU AU
+							<span>CAMPUS-RESTO</span>
+						</h1>
+						<h2>Service Fondamental de la Vie Quotidienne des Etudiants</h2>
+						<br>
+						<br>
+						<h5>
+							<strong>Si vous êtes étudiant et en possession de votre carte, ces endroits vous permettent de faire un repas complet.</strong>
+						</h5>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section></section>
+
+		<section id="why-us" class="why-us">
+			<div class="container" data-aos="fade-up">
+				<div class="section-title">
+					<h2>Les Restaurants UCAD</h2>
+					<p>Choisissez Votre Restaurant</p>
+				</div>
+				  <div class="row">
+					{% for restaurant in restaurants %}
+						<div class="col-lg-4 mb-4">
+							<div class="box" data-aos="zoom-in" data-aos-delay="100">
+								<span>{{ restaurant.nom }}</span>
+								<h4>{{ restaurant.lieu}}</h4>
+								<p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+								<div class="text-center">
+									<a href="{{path('affiche_menu' , { id : restaurant.id })}}" class="book-a-table-btn scrollto d-none d-lg-flex">Afficher Menu</a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+
+				</div> 
+			</div>
+		</section>
+		<section id="gallery" class="gallery">
+
+			<div class="container" data-aos="fade-up">
+				<div class="section-title">
+					<h2>Photos</h2>
+					<p>Quelques photos des restaurants</p>
+				</div>
+			</div>
+            
+			<div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+				<div class="row g-0">
+					<div class="col-lg-3 col-md-4">
+						<div class="gallery-item">
+							<a href="assets/img/gallery/ucad3.jpg" class="gallery-lightbox" data-gall="gallery-item">
+								<img style="width:500px; height:200px;" src="assets/img/gallery/ucad3.jpg" alt="" class="img-fluid">
+							</a>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4">
+						<div class="gallery-item">
+							<a href="assets/img/gallery/ucad1.jpg" class="gallery-lightbox" data-gall="gallery-item">
+								<img style="width:500px; height:200px;" src="assets/img/gallery/ucad1.jpg" alt="" class="img-fluid">
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-4">
+						<div class="gallery-item">
+							<a href="assets/img/gallery/ucad2.jpg" class="gallery-lightbox" data-gall="gallery-item">
+								<img style="width:500px; height:200px;" src="assets/img/gallery/ucad2.jpg" alt="" class="img-fluid">
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-4">
+						<div class="gallery-item">
+							<a href="assets/img/gallery/ucad4.jpg" class="gallery-lightbox" data-gall="gallery-item">
+								<img style="width:500px; height:200px;" src="assets/img/gallery/ucad4.jpg" alt="" class="img-fluid">
+							</a>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4">
+						<div class="gallery-item">
+							<a href="assets/img/gallery/ucad5.jpg" class="gallery-lightbox" data-gall="gallery-item">
+								<img style="width:500px; height:200px;" src="assets/img/gallery/ucad1.jpg" alt="" class="img-fluid">
+							</a>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4">
+						<div class="gallery-item">
+							<a href="assets/img/gallery/ucad1.jpg" class="gallery-lightbox" data-gall="gallery-item">
+								<img style="width:500px; height:200px;" src="assets/img/gallery/ucad1.jpg" alt="" class="img-fluid">
+							</a>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4">
+						<div class="gallery-item">
+							<a href="assets/img/gallery/ucad4.jpg" class="gallery-lightbox" data-gall="gallery-item">
+								<img style="width:500px; height:200px;" src="assets/img/gallery/ucad4.jpg" alt="" class="img-fluid">
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-4">
+						<div class="gallery-item">
+							<a href="assets/img/gallery/ucad2.jpg" class="gallery-lightbox" data-gall="gallery-item">
+								<img style="width:500px; height:200px;" src="assets/img/gallery/ucad2.jpg" alt="" class="img-fluid">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		{# <section id="why-us" class="why-us">
+					<div class="container" data-aos="fade-up">
+						<div class="section-title">
+							<h2>Chefs</h2>
+							<p>Responsable des restaurants</p>
+						</div>
+						<div class="row">
+							{% for responsable in responsables %}
+								<div class="col-lg-4 mb-4">
+									<div class="box" data-aos="zoom-in" data-aos-delay="100">
+										<span>{{ restaurant.nom }}</span>
+										<h4>{{ restaurant.prenom}}</h4>
+										<h4>{{ restaurant.telephone}}</h4>
+										<p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+									</div>
+								</div>
+							{% endfor %}
+		
+						</div>
+					</div>
+				</section> #}
+
+		<!-- ======= Contact Section ======= -->
+		<section id="contact" class="contact">
+			<div class="container" data-aos="fade-up">
+
+				<div class="section-title">
+					<h2>Contact</h2>
+					<p>Contactez Nous</p>
+				</div>
+			</div>
+			<div data-aos="fade-up">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.378939237539!2d-17.47283248614428!3d14.691149989744844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec172891820e057%3A0x44c723c8e97e1dff!2sCit%C3%A9%20Universitaire!5e0!3m2!1sfr!2ssn!4v1627317375459!5m2!1sfr!2ssn" width="1500" height="350" style="border:2;" allowfullscreen="" loading="lazy"></iframe>
+			</div>
+			<div class="container" data-aos="fade-up">
+				<div class="row mt-5">
+					<div class="col-lg-6 mt-5 mt-lg-0">
+						<div class="info">
+							<div class="address">
+								<i class="bi bi-geo-alt"></i>
+								<h4>LOCALISATION:</h4>
+								<p>Dakar, SENEGAL</p>
+							</div>
+							<br>
+							<div class="heure-ouverts">
+								<i class="bi bi-clock"></i>
+								<h4>Heures d'ouvertures:</h4>
+								<p>
+									Lundi-Dimanche:<br>
+									8:00 AM - 24:00 PM
+								</p>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-lg-6 mt-5 mt-lg-0">
+						<div class="info">
+							<div class="email">
+								<i class="bi bi-envelope"></i>
+								<h4>Email:</h4>
+								<p>campusresto@example.com</p>
+							</div>
+							<div class="phone">
+								<i class="bi bi-phone"></i>
+								<h4>Téléphone:</h4>
+								<p>+221 781794521</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Contact Section -->
+	</main>
+{% endblock %}
+
+     
+    

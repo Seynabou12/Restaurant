@@ -1,0 +1,40 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Menu
+{% endblock %}
+
+{% block body %}
+<section>
+     <div class= "container-fluid" style="background-image:url(/assets/img/specials-1.png);margin-top:100px;">
+	<h1>Menu</h1>
+
+	<table class="table" style="background-color:green;">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ menu.id }}</td>
+			</tr>
+			<tr>
+				<th>DescriptionMenu</th>
+				<td>{{ menu.descriptionMenu }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="container-fluid" >
+
+		<h1 >
+		Plats</h1>
+		{{ include('plat/_form.html.twig') }} 
+		<a href="{{ path('plat_index') }}">Liste des plats</a>
+
+	</div>
+	<a href="{{ path('menu_index') }}">Liste des menus</a>
+
+	<a href="{{ path('menu_edit', {'id': menu.id}) }}">Modifier</a>
+
+	{{ include('menu/_delete_form.html.twig') }}
+	</div>
+	</section>
+{% endblock %}
+

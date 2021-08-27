@@ -1,0 +1,92 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <h1>Register</h1>
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+{% endblock %} #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+{% form_theme registrationForm 'bootstrap_5_layout.html.twig' %}
+{% block body %}
+	<div class="container">
+		{% for flashError in app.flashes('verify_email_error') %}
+			<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+		{% endfor %}
+		<section class="h-100 bg-dark" style="color: black;">
+			<div class="container py-5 h-100">
+				<div class="row d-flex justify-content-center align-items-center h-100">
+					<div class="col">
+						<div class="card card-registration my-6">
+							<div class="row g-0">
+								<div class="col-xl-6 d-none d-xl-block">
+									<img src="image/image.png" alt="Sample photo" class="img-fluid" style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;"/>
+									<div class="nabou" style="text-align:center;">
+										<h2>Avec CAMPUS-RESTO,</h2>
+										<br>
+										<h5>vous pouvez consulter tous les menus disponibles des différents restaurants de
+																						l'université.</h5>
+									</div>
+								</div>
+								<div class="col-xl-6">
+									<div class="card-body p-md-5 text-black">
+										{{ form_start(registrationForm) }}
+										<h3 class="mb-5 text-uppercase">Fomrulaire d'Inscription</h3>
+										<div class="row">
+											<div class="col-md-6 mb-4">
+												<div class="form-outline">
+													{{ form_row(registrationForm.prenom, { label: 'prenom'}) }}
+												</div>
+											</div>
+											<div class="col-md-6 mb-4">
+												<div class="form-outline">
+													{{ form_row(registrationForm.nom, { label: 'nom'}) }}
+												</div>
+											</div>
+											<div class="form-outline mb-4">
+												{{ form_row(registrationForm.adresse, { label: 'adresse'}) }}
+											</div>
+											<div class="form-outline mb-4">
+												{{ form_row(registrationForm.telephone, { label: 'telephone'}) }}
+											</div>
+											<div class="form-outline mb-4">
+												{{ form_row(registrationForm.email, { label: 'email'}) }}
+											</div>
+											<div class="form-outline mb-4">
+												{{ form_row(registrationForm.plainPassword, {
+													label: 'Password'
+														}) }}
+											</div>
+											<div class="form-check d-flex justify-content-center">
+												{{ form_row(registrationForm.agreeTerms) }}
+											</div>
+											<div class="form-button">
+												<button class="btn bg-warning scrollto  d-lg-flex">s'inscrire</button>
+											</div>
+											{{ form_end(registrationForm) }}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endblock %}

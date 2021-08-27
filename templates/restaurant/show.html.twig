@@ -1,0 +1,41 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurant
+{% endblock %}
+
+{% block body %}
+
+	<section>
+		<div class:"container-fluid container-xl d-flex align-items-center justify-content-lg-between" style="margin-top:100px;">
+			<div class="container mt-6">
+				<h1>Restaurant</h1>
+
+				<table class="table" style="color:black; background-color:white">
+					<tbody>
+						<tr>
+							<th>Id</th>
+							<td>{{ restaurant.id }}</td>
+						</tr>
+						<tr>
+							<th>Nom</th>
+							<td>{{ restaurant.nom }}</td>
+						</tr>
+						<tr>
+							<th>Lieu</th>
+							<td>{{ restaurant.lieu }}</td>
+						</tr>
+					</tbody>
+				</div>
+			</table>
+			<h1>Menu du Jour</h1>
+
+			<br>
+			{{ include('menu/_form.html.twig') }}
+		</a>
+		{# <a href="{{ path('menu_index') }}">retour</a>
+									<a href="{{ path('restaurant_index') }}">retour</a>
+					
+									<a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">edit</a> #}
+	</div>
+</section>{% endblock %}

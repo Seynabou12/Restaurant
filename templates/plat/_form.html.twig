@@ -1,0 +1,6 @@
+{{ form_start(form) }}
+<div class:"container-fluid container-xl d-flex align-items-center justify-content-lg-between" style="margin-top:100px;">
+    {{ form_widget(form) }}
+    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+</div>
+{{ form_end(form) }}
