@@ -74,6 +74,12 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->restaurants = new ArrayCollection();
     }
+
+    //methode magiqure toString qui retourne un chaine de caractére
+    public function __toString()
+    {
+        return $this->getId() .' - '.$this->getUserIdentifier();
+    }
    
     public function getId(): ?int
     {
