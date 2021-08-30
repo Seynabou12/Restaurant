@@ -40,6 +40,12 @@ class Menu
         $this->plats = new ArrayCollection();
     }
 
+    //methode magiqure toString qui retourne un chaine de caractére
+    public function __toString()
+    {
+        return $this->getId();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

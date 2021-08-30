@@ -33,8 +33,8 @@ class DashboardController extends AbstractDashboardController
     {
         return $this->render('bundles/EasyAdminBundle/welcome.html.twig', [
 
-            'countAllUsers' =>  $this->usersRepository ->findAll(),
-            'countAllRestaurant' => $this->restaurantRepository->findAll()
+            'Users' =>  $this->usersRepository ->findAll(),
+            'Restaurant' => $this->restaurantRepository->findAll()
         ]);
         //return parent::index();
     }
@@ -59,6 +59,7 @@ class DashboardController extends AbstractDashboardController
         return parent::configureUserMenu($user)
         ->setName($user->getUserIdentifier())
         ->setGravatarEmail($user->getUserIdentifier())
+       // ->setAvatarUrl('')
         ->displayUserAvatar('true');
     }
 }

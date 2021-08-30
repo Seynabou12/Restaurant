@@ -8,6 +8,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Twig\Profiler\Dumper\TextDumper;
 
 class RestaurantCrudController extends AbstractCrudController
 {
@@ -22,7 +24,7 @@ class RestaurantCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('nom'),
-            TextEditorField::new('lieu'),
+            TextField::new('lieu'),
             AssociationField::new('users'),
         ];
     }

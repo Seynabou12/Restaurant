@@ -14,7 +14,7 @@ class PlatType extends AbstractType
         $builder
             ->add('nomPlat')
             ->add('description')
-            
+            ->add('menu')
         ;
     }
 
