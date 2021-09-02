@@ -4,15 +4,14 @@ namespace App\Form;
 
 use App\Entity\Comment;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormTypeInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
 
 class CommentType extends AbstractType
 {
@@ -34,7 +33,7 @@ class CommentType extends AbstractType
             'attr' => [
             'class' => 'form-control'
             ]])
-        ->add('message' , TextEditorType::class ,[
+        ->add('message' , TextareaType::class ,[
             'label' => 'Message',
             'attr' => [
             'class' => 'form-control'

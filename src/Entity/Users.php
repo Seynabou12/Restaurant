@@ -80,6 +80,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->getId() .' - '.$this->getUserIdentifier();
     }
+    
    
     public function getId(): ?int
     {

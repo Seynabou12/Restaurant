@@ -2,10 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\RestaurantRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Menu;
+use App\Entity\Users;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\RestaurantRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=RestaurantRepository::class)
@@ -40,9 +43,22 @@ class Restaurant
      */
     private $menus;
 
+    /**
+     * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     
+     */
+    private $createdAt;
+
     public function __construct()
     {
         $this->menus = new ArrayCollection();
+    }
+
+    //methode magiqure toString qui retourne un chaine de caractére
+    public function __toString()
+    {
+        return $this->getId();
     }
     public function getId(): ?int
     {
@@ -112,6 +128,18 @@ class Restaurant
                 $menu->setRestaurant(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
 
         return $this;
     }

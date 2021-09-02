@@ -16,6 +16,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
 
 class DashboardController extends AbstractDashboardController
 {
+    
     protected $usersRespository;
     protected $restaurantRepository;
 
@@ -59,7 +60,7 @@ class DashboardController extends AbstractDashboardController
         return parent::configureUserMenu($user)
         ->setName($user->getUserIdentifier())
         ->setGravatarEmail($user->getUserIdentifier())
-       // ->setAvatarUrl('')
+       // ->setAvatarUrl('') pour donner des liens par exemple le github;
         ->displayUserAvatar('true');
     }
 }
