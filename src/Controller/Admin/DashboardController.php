@@ -61,4 +61,5 @@ class DashboardController extends AbstractDashboardController
         ->setGravatarEmail($user->getUserIdentifier())
         ->displayUserAvatar('true');
     }
+
 }
